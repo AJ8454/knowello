@@ -11,7 +11,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key, this.controller}) : super(key: key);
-  final ScrollController? controller;
+  final PageController? controller;
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -62,8 +62,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 onRefresh: _refreshPost,
                 backgroundColor: Colors.black,
                 color: Colors.white,
-                child: ListView.builder(
+                child: PageView.builder(
+                  scrollDirection: Axis.vertical,
                   controller: widget.controller,
+                  padEnds: false,
                   itemCount: _allPosts!.length,
                   itemBuilder: (context, index) {
                     return _postBody(index, size);

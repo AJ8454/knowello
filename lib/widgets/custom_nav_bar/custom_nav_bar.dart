@@ -15,7 +15,7 @@ class CustomBottomNavigationBar extends StatefulWidget {
 
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   int currentIndex = 0;
-  final controller = ScrollController();
+  final controller = PageController(viewportFraction: 0.78);
 
   @override
   Widget build(BuildContext context) {
